@@ -81,7 +81,7 @@ event.preventDefault();
 }
 return (
 
-<div className="sign-in-main-container">
+<!-- <div className="sign-in-main-container">
 <Form onSubmit={handleSubmit} />
 <Form.Group size="lg" controlid="email">
 <Form.Label>Email</Form.Label>
@@ -111,3 +111,4 @@ onChange={(e) => setEmail(e.target.value)}
 
 );
 }
+ -->
