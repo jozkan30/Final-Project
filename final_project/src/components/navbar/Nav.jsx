@@ -17,12 +17,14 @@ export default function Nav() {
         <NavLink className={"navBarInfo"} to="/readmex2">
           ReadMe within a Readme
         </NavLink>
-        <NavLink className={"navBarButton"} id="navbar-buttons" to="/signup">
+        <div className="navBarInfo" id="barButton">
+        <NavLink className={"navBarInfo"} id="navbar-buttons" to="/signup">
           Sign-Up
         </NavLink>
-        <NavLink className={"navBarButton"} id="navbar-buttons" to="/signin">
+        <NavLink className={"navBarInfo"} id="navbar-buttons" to="/signin">
           Sign-In
         </NavLink>
+        </div>
       </nav>
     </div>
   );

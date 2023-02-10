@@ -14,9 +14,9 @@
     font-size: 20px;
     margin-right: 20px;
   }
-  .navBarButton {
-    
-  }
+  
+  
+  
   
   #navbar-buttons {
     background-color: #8b0000;
@@ -25,11 +25,19 @@
     color: #fff;
     text-align: center;
     margin-right: 20px;
+    text-decoration: none;
+    
     
   }
   
   #navbar-buttons:hover {
     background-color: #b30000;
     cursor: pointer;
+  }
+
+  #barButton {
+    display: flex;
+    flex-direction: row;
+
   }
   

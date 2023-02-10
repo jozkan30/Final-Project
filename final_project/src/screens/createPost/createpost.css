@@ -63,7 +63,7 @@ body {
   }
   
   
-  button {
+  .createButton {
     height: 2.8em;
     width: 9em;
     background: transparent;
@@ -75,7 +75,7 @@ body {
     font-size: 17px;
    }
    
-   button:hover {
+   .createButton:hover {
     background: rgb(50, 208, 50);
     color: #ffffff;
     animation: squeeze3124 0.9s both;

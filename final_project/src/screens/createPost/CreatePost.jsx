@@ -37,8 +37,8 @@ const CreatePost = () => {
             placeholder="Enter the text for your post"
           />
         </div>
-        <div class="button">
-        <button> CREATE POST
+        <div>
+        <button className="createButton"> CREATE POST
 </button>
    
 </div>
