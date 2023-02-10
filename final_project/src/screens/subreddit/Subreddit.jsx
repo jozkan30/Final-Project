@@ -8,12 +8,13 @@ export default function Subreddit() {
   // let subId = axios.get();
   // let subrTitle = axios.get();
   // let usrImg = axios.get();
+  
 
   return (
     <div className="home-page-main-container">
       
-      {/* request the "Subs" title, link,  followers, comments, upVotes and downVotes from the subs Library using the subs id
-      comments tab will display a number of comment total instances.
+      {/* request the "Subs" title, link,  followers, comments, upVotes and downVotes from the Subs Library using the subs id
+      comments tab will display a number of total comment instances.
       upvotes/downvotes will be a function of "upVotes - downVotes" situated in between their respective buttons.
       followers will show a total number of users following the current sub.  by gettting the length of the table array for folllower id's in the subs table we get a total number of followers*/}
       <div id ='subredditHeader'>
