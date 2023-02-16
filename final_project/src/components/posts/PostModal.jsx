@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import "./PostModal.css";
 import { updatePost } from "../../services/posts";
 import CommentBox from "./CommentBox";
+import { createComment, getComments } from "../../services/comments";
 
-function PostModal({ modalPost, displayModal, setDisplayModal, comments }) {
+function PostModal({ modalPost, displayModal, setDisplayModal, comments, setComments, banana }) {
   const body = document.querySelector("body");
 
   const handleClose = () => {
@@ -11,17 +12,27 @@ function PostModal({ modalPost, displayModal, setDisplayModal, comments }) {
     body.classList.remove('freeze-body');
   };
 
-  const [upVotes, setUpVotes] = useState(modalPost.up_votes);
+  // const [upVotes, setUpVotes] = useState(0);
+
+  const [upVotes, setUpVotes] = useState(banana);
   const [downVotes, setDownVotes] = useState(modalPost.down_votes);
+  
+console.log(modalPost)
+console.log(upVotes)
+  useEffect(() => {
+    setUpVotes(modalPost.up_votes)
+    setDownVotes(modalPost.down_votes)
+
+  }, []);
 
   const handleUpVote = async () => {
-    const newUpVotes = upVotes + 1;
+    let newUpVotes = upVotes + 1;
     console.log("new up votes:", newUpVotes); 
     setUpVotes(newUpVotes);
     const updatedPost = { ...modalPost, up_votes: newUpVotes };
     console.log("updated post:", updatedPost);
     try {
-      const response = await updatePost(modalPost.id, updatedPost);
+      const response = await updatePost(modalPost.id,{ ...modalPost, up_votes: upVotes});
       console.log("update post response:", response); 
     } catch (error) {
       console.log("update post error:", error);
@@ -103,7 +114,7 @@ function PostModal({ modalPost, displayModal, setDisplayModal, comments }) {
               ))}
           </div>
         </div>
-        <CommentBox postId={modalPost.id} addComment={handleAddComment} />
+        <CommentBox postId={modalPost.id} addComment={handleAddComment}  setComments={setComments}/>
         <svg className="close-post-modal" onClick={handleClose}>
           <line
             x1="6"

@@ -110,6 +110,7 @@ export default function Subreddit() {
         displayModal={displayModal}
         setDisplayModal={setDisplayModal}
         comments={comments}
+        setComments={setComments}
         />
     </div>
     

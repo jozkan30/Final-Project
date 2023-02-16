@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./CommentBox.css";
 import { createComment } from "../../services/comments";
 
-function CommentBox({ postId }) {
+function CommentBox({ postId, comments, setComments }) {
   const [commentText, setCommentText] = useState("");
 
   const handleCommentChange = (event) => {
@@ -25,7 +25,9 @@ function CommentBox({ postId }) {
       const createdComment = await createComment(newComment);
       console.log("Comment created:", createdComment);
       setCommentText("");
-      // add code to update the UI with the new comment if needed
+      // console.log(comments)
+      // const updatedComments = [createdComment, ...comments];
+      setComments(previous => [...previous, createdComment]);
     } catch (error) {
       console.error("Error creating comment:", error);
     }

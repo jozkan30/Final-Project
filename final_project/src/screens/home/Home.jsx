@@ -93,6 +93,8 @@ export default function Home() {
         displayModal={displayModal}
         setDisplayModal={setDisplayModal}
         comments={comments}
+        setComments={setComments}
+        // banana={modalPost}
       />
     </div>
   );
