@@ -1,8 +1,10 @@
+
+
 import { useState } from "react";
 import "./CommentBox.css";
 import { createComment } from "../../services/comments";
 import {deletePost} from "../../services/posts.js"
-import {  useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function CommentBox({ postId }) {
   const [commentText, setCommentText] = useState("");
@@ -34,13 +36,13 @@ function CommentBox({ postId }) {
   };
 
 
-  let navigate = useNavigate();
+
 
   async function handleDelete() {
     console.log(postId)
     await deletePost(postId);
     window.location.reload()
-    // navigate("/done", { replace: true });
+
   }
 
 

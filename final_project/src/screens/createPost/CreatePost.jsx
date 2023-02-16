@@ -9,7 +9,7 @@ const CreatePost = ({subID}) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [img_url, setImageUrl] = useState("");
-
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,18 +25,20 @@ const CreatePost = ({subID}) => {
     try {
       await createPost(post);
       console.log("Post submitted successfully");
+      setSubmitted(true);
     } catch (error) {
       console.error("Error submitting the post: ", error);
     }
   };
 
-  
+  if (submitted) {
+    return null;
+  }
 
   return (
     <div className="create-post">
       <div className="close-button-container">
         <h2>Create a New Post</h2>
-        {/* <button className="close-button">X</button> */}
       </div>
       <form onSubmit={handleSubmit}>
         <div className="inputbox">
