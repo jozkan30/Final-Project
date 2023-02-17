@@ -12,8 +12,9 @@ code {
     monospace;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 390px) {
   .App {
     width: 390px;
   }    
+
 }

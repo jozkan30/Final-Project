@@ -79,7 +79,7 @@ export default function Login() {
             <input 
               onChange={(event)=>{setPassword(event.target.value)}}
               placeholder="PASSWORD"
-              type="text"
+              type="password"
               name="password"/>
           </label>
         </group>

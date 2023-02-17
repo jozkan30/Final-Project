@@ -12,6 +12,7 @@ const CreatePost = ({subID}) => {
   const [img_url, setImageUrl] = useState("");
   const location = useLocation().pathname
   const navigate = useNavigate()
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     // e.preventDefault(false);
@@ -29,18 +30,20 @@ const CreatePost = ({subID}) => {
       await createPost(post);
       navigate(`${location}`, {replace:true})
       console.log("Post submitted successfully");
+      setSubmitted(true);
     } catch (error) {
       console.error("Error submitting the post: ", error);
     }
   };
 
-  
+  if (submitted) {
+    return null;
+  }
 
   return (
     <div className="create-post">
       <div className="close-button-container">
         <h2>Create a New Post</h2>
-        {/* <button className="close-button">X</button> */}
       </div>
       <form onSubmit={handleSubmit}>
         <div className="inputbox">

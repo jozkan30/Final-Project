@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
   }
   
   .hide-element {
@@ -30,17 +31,18 @@
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: center;
+    color: white;
   }
   
   .modal-image {
-    width: 100%;
-    height: 200px;
     object-fit: cover;
     margin-bottom: 10px;
   }
   
   .texts {
     margin-bottom: 20px;
+    color: white;
   }
   
   .votes-container {
@@ -94,10 +96,8 @@
     border-radius: 19px;
     background: #3e4141;
     box-shadow: inset 34px 34px 71px #1b1c1c,
-                inset -34px -34px 71px #616666;
-    
+                inset -34px -34px 71px #616666; 
   }
-  
   
   .comments-scrollable {
     max-height: 200px;
@@ -150,21 +150,18 @@
     cursor: pointer;
     width: 25px;
     height: 40px;
+    margin-top: 60px;
+    z-index: 1;
   } 
   
   .comment {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    
     border-radius: 30px;
     border: 1px solid #ccc; 
     width: 90%;
-    
-    
-    
   }
-
 
   .comments-title {
     
@@ -176,4 +173,13 @@
     color: white;
   }
   
-  
+  @media screen and (max-width: 390px) {
+    .post-modal {
+      margin-top: 40px;
+    }
+    .close-post-modal {
+      margin-top: 65px;
+      margin-right: 20px;
+      z-index: 1;
+    }
+  }

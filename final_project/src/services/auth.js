@@ -19,17 +19,17 @@ const api = axios.create({
 
 // Create an instance of axios for token requests
 const tokenRequest = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
+    baseURL: BASE_URL,
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
 });
 
 // Log in the user and store the access and refresh tokens in local storage
 const loginUser = (username, password) => {
   const loginBody = {"username": username, "password": password}
-  
+
   return tokenRequest.post(`/api/token/`, loginBody)
     .then((response) => {
       window.localStorage.setItem(ACCESS_TOKEN, response.data.access);
@@ -61,33 +61,33 @@ const isUnauthorizedError = (status) => {
 
 // Create an instance of axios for authenticated requests
 const authApi = axios.create({
-  baseURL: BASE_URL,
-  headers: {
+    baseURL: BASE_URL,
+    headers: {
     'Authorization': accessT,
-    'Content-Type': 'application/json',
-  }
+      'Content-Type': 'application/json',
+    }
 });
 
 // Intercept any 401 Unauthorized errors and attempt to refresh the access token
 authApi.interceptors.response.use(
   (response) => response,
   (error) => {
-    const originalRequest = error.config;
-    const status = error.response.status;
+  const originalRequest = error.config;
+  const status = error.response.status;
     if (isUnauthorizedError(status)) {
       return refreshToken().then((data) => {
-        const headerAuthorization = `Bearer ${window.localStorage.getItem(ACCESS_TOKEN)}`;
+      const headerAuthorization = `Bearer ${window.localStorage.getItem(ACCESS_TOKEN)}`;
         authApi.defaults.headers['Authorization'] = headerAuthorization;
-        originalRequest.headers['Authorization'] = headerAuthorization;
+      originalRequest.headers['Authorization'] = headerAuthorization;
         return authApi(originalRequest)
       })
       .catch((error) => {
-        logoutUser();
-        return Promise.reject(error)
-      })
-    }
-    return Promise.reject(error)
+      logoutUser();
+      return Promise.reject(error)
+    })
   }
+  return Promise.reject(error)
+}
 );
 
 // Log out the user and remove the access and refresh tokens from local storage

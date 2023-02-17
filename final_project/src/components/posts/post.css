@@ -11,14 +11,22 @@
   color: white;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 390px) {
   .post-card {
-
-    width: 100vw;
+    width: 98vw;
     height: 125vw;
     top: 5%;
-
   }  
+
+  #upVotes, #downVotes{
+    font-size: 18px;
+  }
+
+  #comments-tab {
+    font-size: 14px;
+    padding-left: 0px;
+  }
+
 }
 
 #title {

@@ -44,7 +44,7 @@
 
 @media screen and (max-width: 390px) {
     .hamburger button {
-        margin-left: 10px;
+        margin-left: 0px;
         padding: 3px;
         color: white;
         padding-right: 7px;

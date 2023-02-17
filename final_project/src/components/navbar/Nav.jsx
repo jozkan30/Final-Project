@@ -19,11 +19,13 @@ export default function Nav({ search, handleSearch }) {
       <nav className="navBar">
         <HamburgerMenu />
         <NavLink className={"navBarInfo"} to="/">
-          Home
+          ReadMe
         </NavLink>
-       
+
+        
         {isUserLoggedIn() || window.localStorage.getItem(ACCESS_TOKEN) ? 
-          <NavLink onClick={logout} className={"navBarInfo"} id="navbar-log" to="/">Logout</NavLink>
+        
+        <NavLink onClick={logout} className={"navBarInfo"} id="navbar-log" to="/">Logout</NavLink>
           :
           <div>
           <NavLink className={"navBarInfo"} id="navbar-buttons" to="/login">Login</NavLink>
