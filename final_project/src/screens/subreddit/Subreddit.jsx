@@ -22,17 +22,13 @@ export default function Subreddit({}) {
   let {id} = useParams();
   const subPath = useLocation();
   
-  function inSub(){
-    
-  }
 
   function openCreateModal(){
     return setShow(true)
-    console.log(show)
   }
+  
   function closeCreateModal(){
     return setShow(false)
-    console.log(show)
   }
   
   
@@ -46,7 +42,6 @@ export default function Subreddit({}) {
       // update followers array(subs) to remove userID
       return <button id = "join-button">Join</button>}
     }
-  joinSubreddit()
 
   async function fetchSub(){
     
@@ -56,7 +51,6 @@ export default function Subreddit({}) {
     setCreator(ids.creator)
     setSubDescription(ids.description)
     setSubID(ids.id)
-    // console.log(ids)
   }
   
 
@@ -68,23 +62,10 @@ export default function Subreddit({}) {
   async function fetchPosts() {
     const allPosts = await getPosts();
     const subID = allPosts[id].sub
-    // console.log(`sub id: ${subID}`)
-    // console.log(`post subid: ${allPosts[id].sub}`)
-    // console.log(`posts: ${allPosts}`)
 
     setPosts(allPosts.filter(post => {
-      // console.log(post)
-      // console.log(id)
       return post.sub == id
     }));
-
-
-    // console.log(posts)
-  //   fetchPost()
-  // async function fetchPosts() {
-  //   const allPosts = await getPosts();
-  //   setPosts(allPosts.filter(post => id === post.sub.id));
-  // }
 }
 
   useEffect(() => {
@@ -92,8 +73,6 @@ export default function Subreddit({}) {
       const response = await getComments();
       setComments(response);
     };
-
-    fetchComment();
   }, []); 
 
 

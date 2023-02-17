@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./createpost.css";
@@ -9,10 +10,11 @@ const CreatePost = ({subID}) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [img_url, setImageUrl] = useState("");
-
+  const location = useLocation().pathname
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault(false);
     const post = {
       title: title,
       text: text,
@@ -23,7 +25,9 @@ const CreatePost = ({subID}) => {
       sub: subID,
     };
     try {
+      
       await createPost(post);
+      navigate(`${location}`, {replace:true})
       console.log("Post submitted successfully");
     } catch (error) {
       console.error("Error submitting the post: ", error);

@@ -32,7 +32,6 @@ function HamburgerMenu() {
   
   for (let i = 0; i < subs.length; i++){
     const subID = (subs[i].id)
-    console.log(subID)
   }
   
 
