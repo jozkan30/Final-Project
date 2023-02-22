@@ -32,7 +32,7 @@ export default function Subreddit({}) {
   }
 
   function openCreateModal(){
-    postHelp.play()
+    // postHelp.play()
     return setShow(true)
     console.log(show)
   }
@@ -103,7 +103,7 @@ export default function Subreddit({}) {
   }, [refresh]); 
 
   function joinIt() {
-    joinn.play();
+    // joinn.play();
   }
   
 
