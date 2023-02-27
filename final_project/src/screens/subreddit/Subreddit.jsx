@@ -22,8 +22,8 @@ export default function Subreddit({}) {
   const [refresh,setRefresh] = useState(false)
   const [joinn,setJoinn] = useState(new Audio('https://us-tuna-sounds-files.voicemod.net/36b12885-18d0-44ed-97ec-ff3e0956f211-1662757013368.mp3'
   )) 
-  const [postHelp,setPostHelp] = useState(new Audio('https://www.myinstants.com/media/sounds/ohyes.mp3'
-  ))
+  const [joinToggle,setJoinToggle] = useState(false)  
+ const [postHelp,setPostHelp] = useState(new Audio('https://www.myinstants.com/media/sounds/ohyes.mp3'))
   let {id} = useParams();
   const subPath = useLocation();
   
@@ -103,7 +103,8 @@ export default function Subreddit({}) {
   }, [refresh]); 
 
   function joinIt() {
-    // joinn.play();
+    !joinToggle ? joinn.play() : joinn.pause()
+    setJoinToggle(prev => !prev)
   }
   
 
